@@ -4,5 +4,9 @@
     "plaintext": false,
     "markdown": false,
     "csharp": false
-  }
+  },
+
+  "FSharp.enableTreeView": false,
+  "FSharp.TestExplorer.AutoDiscoverTestsOnLoad": false,
+  "FSharp.showExplorerOnStartup": false
 }
