@@ -1,7 +1,7 @@
 import random
 
 tallies = []   # for counting the results of dice throws
-experimentSize = 50_000_000   # how many times to throw virtual dice
+experiment_size = 50_000_000   # how many times to throw virtual dice
 
 # initialize the list for counting rolls of dice
 def prepare_tally_list():
@@ -12,8 +12,8 @@ def prepare_tally_list():
 
 # roll dice many times and track the results
 def throw_lots_of_dice():
-    print(f"Now rolling {experimentSize:,} pairs of dice.")
-    for roll in range(experimentSize):
+    print(f"Now rolling {experiment_size:,} pairs of dice.")
+    for roll in range(experiment_size):
         die1 = random.randint(1,6)
         die2 = random.randint(1,6)
         total = die1 + die2
@@ -22,10 +22,10 @@ def throw_lots_of_dice():
 
 # display a graph of the tallies; should look somewhat like a triangular "bell curve"
 def display_results():
-    scale = experimentSize//200
+    scale = experiment_size // 200
     for i in range(2,13):
         print(f"{i: 3d}: ", end='')
-        for graph_unit in range(tallies[i]//scale):
+        for graph_unit in range(tallies[i] // scale):
             print("#", end='')
         print(f" ({tallies[i]:,})")
     print(f" (Scale: each # represents {scale:,} rolls.)")
