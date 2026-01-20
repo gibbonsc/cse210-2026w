@@ -31,6 +31,9 @@ def display_results():
     print(f" (Scale: each # represents {scale:,} rolls.)")
 
 # The main program starts here. It just calls the three previously defined functions.
-prepare_tally_list()
-throw_lots_of_dice()
-display_results()
+def main():
+    prepare_tally_list()
+    throw_lots_of_dice()
+    display_results()
+
+main()
