@@ -266,5 +266,17 @@
             "cwd": "${workspaceFolder}/sandbox/DiceDistribution",
             "script": "Measure-Command { & dotnet ${workspaceFolder}/sandbox/DiceDistribution/bin/Debug/net10.0/DiceDistribution.dll }"
         },
-   ]
+        {
+            "name": "Till",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-sandbox-Till",
+            "program": "${workspaceFolder}/sandbox/Till/bin/Debug/net10.0/Till.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/sandbox/Till",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false
+        },
+  ]
 }
