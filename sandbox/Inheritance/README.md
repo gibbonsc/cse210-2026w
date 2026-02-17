@@ -1,6 +1,6 @@
 # Inheritance lecture notes
 
-Because of yesterday's Presidents' Day holiday, section 5 students (Mon+Wed 12:45-1:45pm) have both class sessions with me this week, but my section 4 students (Tues+Thurs 9-10am) will only see me Thursday. Section 4 students: my lecture notes are below. Section 5 students: you can have them too! All students: please *finish* your W07 Prepare: Learning Activity before class begins on Wednesday/Thursday. Also, please review these lecture notes, so that we can get started right away on your team activity. - Bro. Gibbons
+Because of yesterday's Presidents' Day holiday, section 5 students (Mon+Wed 12:45-1:45pm) have both class sessions with me this week, but my section 4 students (Tues+Thurs 9-10am) will only see me Thursday. Section 4 students: my lecture notes are below. Section 5 students: you can have them too! All students: please *finish* your W07 Prepare: Learning Activity before class begins on Wednesday/Thursday. Also, please review these lecture notes, so that we can get started right away on your team design activity. - Bro. Gibbons
 
 ## Object relationships
 
@@ -8,26 +8,26 @@ Because of yesterday's Presidents' Day holiday, section 5 students (Mon+Wed 12:4
 
 So far we have studied and used examples of data types (classes) that feature relationships like these:
 
-A `Resume` object _has a_ `Person` and _has a_ list of `Job` objects.
-A `Journal` object _has a_ list of `Entry` objects.
-A `Fraction` object _has a_ numerator (`_top`) number attribute and _has a_ denominator (`_bottom`) number attribute.
-A `Till` object _has a_ list of `Bin` objects.
-A `Scripture` object _has a_ `Reference` object _has a_ list of `Word` objects.
-A `Reference` object _has a_ string attribute `_book` and _has_ some number attributes (`_chapter` and `_verse` numbers).
+* A `Resume` object _has a_ `Person` and _has a_ list of `Job` objects.
+* A `Journal` object _has a_ list of `Entry` objects.
+* A `Fraction` object _has a_ numerator (`_top`) number attribute and _has a_ denominator (`_bottom`) number attribute.
+* A `Till` object _has a_ list of `Bin` objects.
+* A `Scripture` object _has a_ `Reference` object and _has a_ list of `Word` objects.
+* A `Reference` object _has a_ string attribute `_book` and _has_ number attributes (`_chapter` and `_verse` numbers).
 
-Almost every simulation you can possibly design can be modeled using **"has a"** relationships, expressed with abstraction and encapsulation principles. Designs based on these principles tend to accurately reflect the real-world realities that object-oriented software can model. Some classes represent **"components"** of other classes. Some classes represent **"aggregates"** of other component classes. You can build "hierarchies" of relationships this way. Objects of a component class become attributes inside objects of an aggregator class.
+Just about every simulation you could possibly design could be modeled using **"has a"** relationships, expressed with abstraction and encapsulation principles. Designs based on these principles tend to accurately reflect the real-world realities that object-oriented software can model. Some classes represent **"components"** of other classes. Some classes represent **"aggregates"** of other component classes. You can build "hierarchies" of relationships this way. Objects of a component class become attributes inside objects of an aggregator class.
 
 ### "is-a"
 
 Also common among software problems are **_hierarchical domain models_** that specify **"is a"** relationships. Some examples from your learning activity:
 
-A `Student` _is a_ particular type of common `Person`.
-A `MathAssignment` _is a_ detailed kind of generic `Assignment`.
-A `WritingAssignment` _is a_ specialized variant of `Assignment`.
+* A `Student` _is a_ particular type of common `Person`.
+* A `MathAssignment` _is a_ detailed kind of generic `Assignment`.
+* A `WritingAssignment` _is a_ specialized variant of `Assignment`.
 
 Such models are **NOT** the same as "has a" component hierarchies. It's not effective to try to model these relationships by placing attributes of a general compoent inside a specialized class. Instead, we'll use a new principle **Inheritance** to model "is a" relationships like this: a specialized class _inherits_ the attributes and behaviors of a generalized class, and extends it with additional capabilities.
 
-#### Synonym time!
+#### More Fun With Synonyms!
 
 Professionals use the following vocabulary as we communicate about inheritance (_"is a"_) relationships between classes of objects:
 
@@ -46,7 +46,7 @@ Our classroom activity features collections of object types that we could try to
 * SavingsAccount, DebitAccount, BrokerageAccount, Loan
 * Percussion, String, Woodwind, Brass, Voice, ElectronicSynthesizer
 
-Different in-class teams study and try to figure out what the colleciton has in common, design a _parent class_ for their common attributes and behaviors, and design _child classes_ for the attributes and behaviors unique to each type in the colleciton. Examples:
+Different in-class teams study and try to figure out what the colleciton has in common, design a _parent class_ for their common attributes and behaviors, and design _child classes_ for the attributes and behaviors unique to each type in the colleciton. Examples (not necessarily best solutions):
 
 * _base class_ BallotItem, with _derived classes_ NonPartisanOfficial and YesNoItem. NonPartisanOfficial could also be it's own base class with PartisanOfficial as a derived class, and YesNoItem would also be a base class with derived classes JudgeRetention, Referendum, TaxLevy.
   * Common attributes in a civic election simulator's BallotItem class might be `_ballotText`, `_polity`, `_choices`, `_voteTotals`. Common behaviors might be `DisplayChoices()` and `RecordVote()`.
@@ -64,14 +64,14 @@ Different in-class teams study and try to figure out what the colleciton has in 
   * Specific ArrestorGear attribute `_externalArrestorSystem`, behavior `Collide()`.
 
 * base class CellularTissue, with derived classes BoneTissue, MuscleTissue, NerveTissue, SkinTissue, BloodTissue, for a cellular biology systems simulator.
-  * Common attribute `_cellMatrix`, common behaviors `Mitosis` and `ProduceProtein()`.
+  * Common attribute `_cellMatrix`, common behaviors `Mitosis()` and `ProduceProtein()`.
   * BoneTissue specialties: a constructor that initalizes `_cellMatrix` to "Calcium structural compound", along with a `BuildStructure() behavior.
   * MuscleTissue specialties: constructor initalizes `_cellMatrix` to "Muscle fiber", along with a `Flex()` behavior.
   * NerveTissue: constructor sets `_cellMatrix` to "Myelin", behavior `Signal()`
   * SkinTissue: constructor sets `_cellMatrix` to "Collagen", behaviors `Sweat()`, `GrowHair()`
   * BloodTissue: `cellMatrix` "Plasma", behaviors `DeliverOxygen()`, `Clot()`.
 
-In class diagrams, inheritance "is a" relationships are shown using an arrow with an _empty triangle outline_ arrowhead attached to the base class. **This is important.** Don't use filled in or stylized arrowheads; such arrows are used in advanced UML diagramming for nuanced "has a" relationships. Your inheritance diagrams **_must always_** have empty outlined triangle "delta" arrowheads. Examples:
+In class diagrams, inheritance "is a" relationships are shown using an arrow with an _empty triangle outline_ arrowhead attached to the base class. **This is important!** Don't use filled in or stylized arrowheads; such arrows are used in advanced UML diagramming for nuanced "has a" relationships. Your inheritance diagrams **_must always_** have empty outlined triangle "delta" arrowheads. Examples:
 
 ![BallotChoices inheritance diagram](BallotChoices.png)
 
@@ -125,12 +125,14 @@ class Program
     {
         Woodwind altoSaxophone = new Woodwind(
             125.0, 900.0, "single", "cone and bell");
-        Woodwind oboe = new Woodwind(
-            233.08, 1760.0, "double", "cylinder and bell");
+        Woodwind bassClarinet = new Woodwind(
+            58.27, 1174.66, "single", "cylinder and bell");
+        Woodwind bassoon = new Woodwind(
+            58.27, 659.25, "double", "cone and folded bell");
         Woodwind piccolo = new Woodwind(
-            587.0, 4186,0, "pursed lips above mouthpiece", "cylinder without bell");
+            587.0, 4186,0, "none", "cylinder without bell");
         Console.WriteLine(altoSaxophone.GetLowest());
-        Console.WriteLine(oboe.GetHighest());
+        Console.WriteLine(bassClarinet.GetHighest());
         Console.WriteLine(piccolo.GetWindColumnShape());
     }
 }
