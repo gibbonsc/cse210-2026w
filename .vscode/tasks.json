@@ -4,6 +4,19 @@
     "tasks": [
 
         {
+            "label": "build-sandbox-Animal",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/sandbox/Animal/Animal.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+
+        {
             "label": "build-sandbox-Sandbox",
             "command": "dotnet",
             "type": "process",

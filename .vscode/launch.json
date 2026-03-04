@@ -2,6 +2,18 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Animal Sandbox Project",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-sandbox-Animal",
+            "program": "${workspaceFolder}/sandbox/Animal/bin/Debug/net10.0/Animal.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/sandbox/Animal",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false
+        },
+        {
             "name": "Sandbox Project",
             "type": "coreclr",
             "request": "launch",
